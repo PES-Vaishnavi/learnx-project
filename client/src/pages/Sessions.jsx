@@ -5,7 +5,8 @@ import { io } from "socket.io-client";
 import Peer from "simple-peer";
 
 // Use environment variable for production
-const socket = io(process.env.REACT_APP_API_URL || "https://learnx-api.onrender.com");
+// Inside your Sessions.jsx or wherever socket is initialized:
+const socket = io("https://learnx-api.onrender.com");
 
 // --- Sub-Component: SessionToDoCard remains the same ---
 const SessionToDoCard = ({ session, onSelect, isSelected }) => {

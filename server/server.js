@@ -18,12 +18,13 @@ const PORT = 5000;
 const server = createServer(app);
 
 const io = new Server(server, {
-  // Change 5173 to 3000
-  cors: { origin: "http://localhost:3000", methods: ["GET", "POST"] }
+  cors: {
+    origin: "https://learnx-frontend-final.onrender.com",
+    methods: ["GET", "POST"]
+  }
 });
 app.use(cors({
-  // Change 5173 to 3000
-  origin: "http://localhost:3000",
+  origin: "https://learnx-frontend-final.onrender.com", // Your NEW frontend URL
   credentials: true
 }));
 app.use(express.json());
