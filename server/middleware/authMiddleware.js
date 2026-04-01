@@ -9,7 +9,7 @@ export default function auth(req, res, next) {
 
   try {
     // You are using the hardcoded string in Login, so use it here too
-    const decoded = jwt.verify(token, "1supersecretkey2");
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
    req.user = { id: decoded.id };
     next();
   } catch (err) {

@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: "http://localhost:5000/api", // Ensure the /api prefix matches your backend
+  baseURL: "https://learnx-api.onrender.com/api", // Ensure the /api prefix matches your backend
 });
 
 API.interceptors.request.use((req) => {

@@ -5,7 +5,7 @@ import { io } from "socket.io-client";
 import Peer from "simple-peer";
 
 // Use environment variable for production
-const socket = io(process.env.REACT_APP_API_URL || "http://localhost:5000");
+const socket = io(process.env.REACT_APP_API_URL || "https://learnx-api.onrender.com");
 
 // --- Sub-Component: SessionToDoCard remains the same ---
 const SessionToDoCard = ({ session, onSelect, isSelected }) => {
@@ -77,7 +77,7 @@ const Sessions = () => {
   useEffect(() => {
     const fetchActiveSessions = async () => {
       try {
-        const res = await axios.get(`${process.env.REACT_APP_API_URL || "http://localhost:5000"}/api/sessions/active`, {
+        const res = await axios.get(`${process.env.REACT_APP_API_URL || "https://learnx-api.onrender.com"}/api/sessions/active`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setActiveSessions(res.data);

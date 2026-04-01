@@ -6,7 +6,7 @@ const SessionsToDos = ({ requests, onActionComplete }) => {
   const handleAccept = async (sessionId) => {
     try {
       const token = localStorage.getItem("token");
-      await axios.put(`http://localhost:5000/api/sessions/accept/${sessionId}`, {}, {
+      await axios.put(`https://learnx-api.onrender.com/api/sessions/accept/${sessionId}`, {}, {
         headers: { Authorization: `Bearer ${token}` }
       });
       // Refresh the list in the parent component

@@ -15,7 +15,7 @@ const MatchCard = ({ match }) => {
   useEffect(() => {
     const fetchStatus = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/sessions/status/${match.userId}`, {
+        const res = await axios.get(`https://learnx-api.onrender.com/api/sessions/status/${match.userId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setSession(res.data);
@@ -28,7 +28,7 @@ const MatchCard = ({ match }) => {
 
   const handleInitiate = async () => {
     try {
-      const res = await axios.post("http://localhost:5000/api/sessions/initiate", {
+      const res = await axios.post("https://learnx-api.onrender.com/api/sessions/initiate", {
         receiverId: match.userId,
         skillGained: match.skillsToLearn?.[0] || "General Learning",
         skillShared: match.skillsKnown?.[0] || "General Teaching",
@@ -42,7 +42,7 @@ const MatchCard = ({ match }) => {
 
   const handleResponse = async (newStatus) => {
     try {
-      const res = await axios.put(`http://localhost:5000/api/sessions/${session._id}/status`, 
+      const res = await axios.put(`https://learnx-api.onrender.com/api/sessions/${session._id}/status`, 
         { status: newStatus },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -139,7 +139,7 @@ const Match = () => {
       setLoading(true);
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get("http://localhost:5000/api/matches/recommend", {
+        const res = await axios.get("https://learnx-api.onrender.com/api/matches/recommend", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setMatches(res.data);
